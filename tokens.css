@@ -1,0 +1,229 @@
+/* ============================================================
+   FAKEITT Design System — Tokens
+   colors, typography, spacing, radii, shadows, motion
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap');
+
+/* Wise Sans is proprietary; Archivo Black is the substitute.
+   When real Wise Sans files are provided, swap the @font-face below. */
+@font-face {
+  font-family: 'Wise Sans';
+  src: local('Archivo Black'), url('/fonts/ArchivoBlack-Regular.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+}
+
+:root {
+  /* ---------- COLOR — PRIMARY BRAND ---------- */
+  --color-near-black:        #0e0f0c;  /* primary text, dark surfaces */
+  --color-wise-green:        #9fe870;  /* primary CTA, brand accent */
+  --color-dark-green:        #163300;  /* button text on green */
+  --color-light-mint:        #e2f6d5;  /* soft surface, badge bg */
+  --color-pastel-green:      #cdffad;  /* hover accent */
+
+  /* ---------- COLOR — SEMANTIC ---------- */
+  --color-positive:          #054d28;  /* success */
+  --color-danger:            #d03238;  /* error, destructive */
+  --color-warning:           #ffd11a;  /* warnings */
+  --color-info-tint:         rgba(56, 200, 255, 0.10);
+  --color-bright-orange:     #ffc091;  /* warm accent */
+
+  /* ---------- COLOR — NEUTRAL ---------- */
+  --color-warm-dark:         #454745;  /* secondary text, borders */
+  --color-gray:              #868685;  /* muted, tertiary */
+  --color-light-surface:     #e8ebe6;  /* subtle green-tinted surface */
+  --color-white:             #ffffff;
+
+  /* ---------- COLOR — ROLES ---------- */
+  --fg-1:                    var(--color-near-black);
+  --fg-2:                    var(--color-warm-dark);
+  --fg-3:                    var(--color-gray);
+  --fg-on-green:             var(--color-dark-green);
+  --fg-on-dark:              var(--color-white);
+
+  --bg-canvas:               var(--color-white);
+  --bg-soft:                 var(--color-light-mint);
+  --bg-inverted:             var(--color-near-black);
+  --bg-subtle:               var(--color-light-surface);
+
+  --border-default:          rgba(14, 15, 12, 0.12);
+  --border-accent:           var(--color-wise-green);
+  --border-input-focus:      var(--color-gray);
+
+  --accent:                  var(--color-wise-green);
+  --accent-hover:            var(--color-pastel-green);
+  --accent-fg:               var(--color-dark-green);
+
+  /* ---------- TYPE — FAMILIES ---------- */
+  --font-display:            'Wise Sans', 'Archivo Black', 'Inter', system-ui, sans-serif;
+  --font-body:               'Inter', 'Helvetica', 'Arial', sans-serif;
+  --font-mono:               ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* ---------- TYPE — SCALE (px / rem) ---------- */
+  --fs-display-mega:         126px;   /* 7.88rem */
+  --fs-display-hero:         96px;    /* 6.00rem */
+  --fs-section:              64px;    /* 4.00rem */
+  --fs-subheading:           40px;    /* 2.50rem */
+  --fs-alt-heading:          78px;    /* 4.88rem — Inter */
+  --fs-card-title:           26px;    /* 1.62rem */
+  --fs-feature-title:        22px;    /* 1.38rem */
+  --fs-body-lg:              18px;    /* 1.13rem */
+  --fs-body:                 16px;    /* 1.00rem */
+  --fs-caption:              14px;    /* 0.88rem */
+  --fs-small:                12px;    /* 0.75rem */
+
+  /* ---------- TYPE — LINE HEIGHT ---------- */
+  --lh-display:              0.85;    /* ultra-tight, intentional */
+  --lh-tight:                1.10;
+  --lh-snug:                 1.23;
+  --lh-body:                 1.44;
+  --lh-relaxed:              1.50;
+
+  /* ---------- TYPE — TRACKING ---------- */
+  --tracking-display:        normal;
+  --tracking-alt:            -2.34px;
+  --tracking-tight:          -0.39px;
+  --tracking-snug:           -0.108px;
+  --tracking-body:           0.18px;
+
+  /* ---------- TYPE — WEIGHTS ---------- */
+  --fw-regular:              400;
+  --fw-medium:               500;
+  --fw-semibold:             600;     /* default body weight */
+  --fw-bold:                 700;
+  --fw-black:                900;     /* display weight, IS the brand */
+
+  /* ---------- SPACING ---------- */
+  --space-px:                1px;
+  --space-0-5:               2px;
+  --space-1:                 4px;
+  --space-1-5:               6px;
+  --space-2:                 8px;     /* base unit */
+  --space-3:                 12px;
+  --space-4:                 16px;
+  --space-5:                 20px;
+  --space-6:                 24px;
+  --space-8:                 32px;
+  --space-10:                40px;
+  --space-12:                48px;
+  --space-16:                64px;
+  --space-20:                80px;
+  --space-24:                96px;
+  --space-32:                128px;
+
+  /* ---------- RADIUS ---------- */
+  --radius-min:              2px;
+  --radius-input:            10px;
+  --radius-sm:               16px;
+  --radius-md:               20px;
+  --radius-lg:               30px;
+  --radius-xl:               40px;
+  --radius-mega:             1000px;
+  --radius-pill:             9999px;
+  --radius-circle:           50%;
+
+  /* ---------- SHADOW / RING ---------- */
+  --shadow-flat:             none;
+  --shadow-ring:             rgba(14, 15, 12, 0.12) 0px 0px 0px 1px;
+  --shadow-ring-strong:      rgba(14, 15, 12, 0.24) 0px 0px 0px 1px;
+  --shadow-inset:            rgb(134, 134, 133) 0px 0px 0px 1px inset;
+
+  /* ---------- MOTION ---------- */
+  --ease-standard:           cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast:           120ms;
+  --duration-base:           200ms;
+  --duration-slow:           320ms;
+
+  --hover-scale:             1.05;
+  --active-scale:            0.95;
+
+  /* ---------- LAYOUT ---------- */
+  --content-max:             1280px;
+  --gutter-mobile:           24px;
+  --gutter-desktop:          64px;
+  --section-y:               96px;
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT DEFAULTS
+   ============================================================ */
+
+html {
+  font-feature-settings: "calt" on;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-lg);
+  font-weight: var(--fw-semibold); /* 600 — the FAKEITT default */
+  line-height: var(--lh-body);
+  letter-spacing: var(--tracking-body);
+  color: var(--fg-1);
+  background: var(--bg-canvas);
+  font-feature-settings: "calt" on;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-black);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-display);
+  color: var(--fg-1);
+  font-feature-settings: "calt" on;
+  margin: 0;
+}
+
+h1 { font-size: var(--fs-display-hero); }
+h2 { font-size: var(--fs-section); }
+h3 { font-size: var(--fs-subheading); }
+h4 { font-size: var(--fs-card-title); font-family: var(--font-body); font-weight: var(--fw-semibold); line-height: var(--lh-snug); letter-spacing: var(--tracking-tight); }
+h5 { font-size: var(--fs-feature-title); font-family: var(--font-body); font-weight: var(--fw-semibold); line-height: var(--lh-snug); letter-spacing: var(--tracking-tight); }
+h6 { font-size: var(--fs-body-lg); font-family: var(--font-body); font-weight: var(--fw-semibold); line-height: var(--lh-body); letter-spacing: var(--tracking-snug); }
+
+p {
+  margin: 0;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+}
+
+small {
+  font-size: var(--fs-caption);
+  line-height: var(--lh-relaxed);
+  letter-spacing: var(--tracking-snug);
+}
+
+a {
+  color: var(--fg-1);
+  text-decoration: none;
+  border-radius: var(--radius-min);
+  transition: text-decoration-color var(--duration-base) var(--ease-standard);
+}
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+button {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-feature-settings: "calt" on;
+  cursor: pointer;
+  transition: transform var(--duration-base) var(--ease-standard),
+              background-color var(--duration-base) var(--ease-standard);
+}
+
+input, textarea, select {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-lg);
+  font-weight: var(--fw-regular);
+  font-feature-settings: "calt" on;
+}

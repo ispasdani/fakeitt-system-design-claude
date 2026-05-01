@@ -1,0 +1,177 @@
+/* ============================================================
+   PLATFORM CHAT OVERLAYS
+   Pixel-style replicas of Kick / Twitch / YouTube / TikTok chat.
+   Each overlay reads `messages` (array) and renders the chat box.
+   These match the live look of each platform.
+   ============================================================ */
+
+/* ---------- KICK ---------- */
+.ov-kick {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: rgba(15, 15, 16, 0.78);
+  border: 1px solid rgba(83, 252, 24, 0.15);
+  border-radius: 6px;
+  color: #fff;
+  display: flex; flex-direction: column;
+  font-size: 14px;
+  overflow: hidden;
+  backdrop-filter: blur(2px);
+}
+.ov-kick .kc-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: rgba(0,0,0,0.3);
+}
+.ov-kick .kc-title { font-weight: 700; font-size: 13px; letter-spacing: 0.02em; }
+.ov-kick .kc-live { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; color: #53fc18; }
+.ov-kick .kc-live .dot { width: 7px; height: 7px; background: #53fc18; border-radius: 50%; box-shadow: 0 0 8px #53fc18; }
+.ov-kick .kc-viewers { font-size: 11px; color: #c1c1c1; display: inline-flex; align-items: center; gap: 4px; }
+.ov-kick .kc-body { flex: 1; padding: 8px 12px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; min-height: 0; }
+.ov-kick .kc-msg { line-height: 1.35; word-break: break-word; animation: msgin 220ms var(--ease-standard); }
+.ov-kick .kc-badge {
+  display: inline-block; width: 16px; height: 16px; border-radius: 3px;
+  vertical-align: -3px; margin-right: 4px; font-size: 9px; font-weight: 800;
+  text-align: center; line-height: 16px; color: #fff;
+}
+.ov-kick .kc-badge.mod { background: #53fc18; color: #000; }
+.ov-kick .kc-badge.vip { background: #e91e63; }
+.ov-kick .kc-badge.sub { background: #1e90ff; }
+.ov-kick .kc-badge.verified { background: #9146ff; }
+.ov-kick .kc-user { font-weight: 700; }
+.ov-kick .kc-text { color: #efefef; margin-left: 6px; font-weight: 400; }
+.ov-kick .kc-system { font-size: 12px; color: #53fc18; padding: 4px 8px; background: rgba(83,252,24,0.08); border-radius: 4px; border-left: 3px solid #53fc18; font-weight: 500; }
+.ov-kick .kc-foot {
+  padding: 8px 12px; border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; gap: 6px; align-items: center;
+}
+.ov-kick .kc-input {
+  flex: 1; background: rgba(255,255,255,0.06); border: 0; padding: 8px 10px;
+  border-radius: 4px; color: #fff; font-size: 13px; font-family: inherit;
+}
+.ov-kick .kc-send { background: #53fc18; color: #000; border: 0; padding: 8px 14px; border-radius: 4px; font-weight: 700; font-size: 12px; cursor: pointer; }
+
+@keyframes msgin {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- TWITCH ---------- */
+.ov-twitch {
+  font-family: 'Inter', 'Roobert', system-ui, sans-serif;
+  background: rgba(24, 24, 27, 0.92);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 4px;
+  color: #efeff1;
+  display: flex; flex-direction: column;
+  font-size: 13px;
+  overflow: hidden;
+}
+.ov-twitch .tw-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: rgba(0,0,0,0.4);
+}
+.ov-twitch .tw-title { font-weight: 600; font-size: 13px; color: #efeff1; }
+.ov-twitch .tw-icon { width: 18px; height: 18px; color: #adadb8; }
+.ov-twitch .tw-body { flex: 1; padding: 6px 8px; overflow-y: auto; display: flex; flex-direction: column; gap: 4px; min-height: 0; }
+.ov-twitch .tw-msg { line-height: 1.4; word-break: break-word; padding: 3px 6px; border-radius: 3px; animation: msgin 220ms var(--ease-standard); }
+.ov-twitch .tw-msg:hover { background: rgba(255,255,255,0.04); }
+.ov-twitch .tw-badge {
+  display: inline-block; width: 18px; height: 18px; border-radius: 2px;
+  vertical-align: -4px; margin-right: 4px; font-size: 9px; font-weight: 800;
+  text-align: center; line-height: 18px; color: #fff;
+}
+.ov-twitch .tw-badge.mod { background: #00ad03; }
+.ov-twitch .tw-badge.vip { background: #e005b9; }
+.ov-twitch .tw-badge.sub { background: #9146ff; }
+.ov-twitch .tw-badge.broadcaster { background: #e91916; }
+.ov-twitch .tw-user { font-weight: 700; }
+.ov-twitch .tw-text { color: #efeff1; margin-left: 4px; font-weight: 400; }
+.ov-twitch .tw-text::before { content: ': '; color: #efeff1; }
+.ov-twitch .tw-system {
+  font-size: 12px; color: #efeff1; padding: 8px;
+  background: rgba(145,70,255,0.15); border-left: 3px solid #9146ff;
+  border-radius: 3px; font-weight: 500;
+}
+.ov-twitch .tw-foot { padding: 8px; border-top: 1px solid rgba(255,255,255,0.06); }
+.ov-twitch .tw-input {
+  width: 100%; background: rgba(255,255,255,0.1); border: 1px solid transparent;
+  padding: 8px 10px; border-radius: 4px; color: #efeff1; font-size: 13px; font-family: inherit;
+}
+.ov-twitch .tw-input:focus { border-color: #9146ff; outline: none; }
+
+/* ---------- YOUTUBE ---------- */
+.ov-youtube {
+  font-family: 'Roboto', 'Inter', system-ui, sans-serif;
+  background: rgba(255,255,255,0.97);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 12px;
+  color: #0f0f0f;
+  display: flex; flex-direction: column;
+  font-size: 13px;
+  overflow: hidden;
+}
+.ov-youtube .yt-head {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px; border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.ov-youtube .yt-title { font-weight: 600; font-size: 14px; flex: 1; }
+.ov-youtube .yt-tabs { display: flex; gap: 4px; padding: 8px 12px 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.ov-youtube .yt-tab { padding: 6px 12px; border-radius: 9999px; font-size: 12px; font-weight: 500; color: #606060; cursor: pointer; }
+.ov-youtube .yt-tab.is-active { background: #0f0f0f; color: #fff; }
+.ov-youtube .yt-body { flex: 1; padding: 8px 12px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; min-height: 0; }
+.ov-youtube .yt-msg { display: flex; gap: 8px; align-items: flex-start; line-height: 1.35; animation: msgin 220ms var(--ease-standard); }
+.ov-youtube .yt-avatar { width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; }
+.ov-youtube .yt-content { flex: 1; min-width: 0; word-break: break-word; }
+.ov-youtube .yt-user { font-weight: 500; font-size: 12px; color: #606060; margin-right: 6px; }
+.ov-youtube .yt-text { color: #0f0f0f; font-size: 13px; font-weight: 400; }
+.ov-youtube .yt-superchat {
+  background: linear-gradient(180deg, #1565c0 0%, #1976d2 50%);
+  color: #fff; padding: 8px 10px; border-radius: 4px;
+}
+.ov-youtube .yt-superchat .yt-amount { font-weight: 700; }
+.ov-youtube .yt-system {
+  background: #f9f9f9; padding: 8px; font-size: 12px; color: #606060;
+  border-radius: 6px; font-weight: 500; text-align: center;
+}
+.ov-youtube .yt-badge {
+  display: inline-block; padding: 1px 6px; border-radius: 3px;
+  font-size: 9px; font-weight: 700; vertical-align: 2px; margin-right: 4px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.ov-youtube .yt-badge.member { background: #2ba640; color: #fff; }
+.ov-youtube .yt-badge.mod { background: #0066cc; color: #fff; }
+.ov-youtube .yt-badge.owner { background: #fcc934; color: #000; }
+.ov-youtube .yt-foot { padding: 10px 12px; border-top: 1px solid rgba(0,0,0,0.08); display: flex; gap: 8px; align-items: center; }
+.ov-youtube .yt-foot-avatar { width: 28px; height: 28px; border-radius: 50%; background: #909090; flex-shrink: 0; }
+.ov-youtube .yt-input { flex: 1; background: transparent; border: 0; padding: 6px 0; font-size: 13px; color: #0f0f0f; font-family: inherit; }
+
+/* ---------- TIKTOK ---------- */
+.ov-tiktok {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #fff; display: flex; flex-direction: column;
+  font-size: 13px; pointer-events: none;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.5) 100%);
+  padding: 8px 12px;
+}
+.ov-tiktok .tt-body { display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; flex: 1; min-height: 0; overflow: hidden; }
+.ov-tiktok .tt-msg {
+  display: inline-flex; align-items: center; gap: 6px; max-width: 80%;
+  background: rgba(0,0,0,0.4); padding: 6px 10px; border-radius: 9999px;
+  align-self: flex-start; animation: msgin 220ms var(--ease-standard);
+  font-size: 13px;
+}
+.ov-tiktok .tt-avatar { width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; background: #fe2c55; }
+.ov-tiktok .tt-text-wrap { display: flex; flex-direction: column; line-height: 1.2; }
+.ov-tiktok .tt-user { font-size: 11px; color: rgba(255,255,255,0.7); font-weight: 600; }
+.ov-tiktok .tt-text { font-size: 13px; font-weight: 500; color: #fff; }
+.ov-tiktok .tt-gift {
+  background: linear-gradient(135deg, #fe2c55 0%, #ff6b9d 100%);
+  padding: 6px 12px 6px 6px; border-radius: 9999px;
+  display: flex; align-items: center; gap: 8px; font-weight: 700;
+}
+.ov-tiktok .tt-system {
+  background: rgba(254, 44, 85, 0.85); padding: 4px 12px; border-radius: 9999px;
+  align-self: flex-start; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
